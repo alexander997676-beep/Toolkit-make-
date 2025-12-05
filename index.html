@@ -1,602 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Xyro API - The next-generation developer API platform. scalable, secure, and lightning fast.">
-    <title>Xyro API | Build Faster</title>
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAZ OFFICIAL | API Platform</title>
     
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@300;400;500;600&family=Fira+Code&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            /* Palette */
-            --bg-deep: #030014;
-            --primary: #7000ff;
-            --primary-glow: #a64dff;
-            --accent: #00f0ff;
-            --text-main: #ffffff;
-            --text-muted: #94a3b8;
-            --card-bg: rgba(15, 23, 42, 0.6);
-            --border-light: rgba(255, 255, 255, 0.1);
-            
-            /* Spacing & Layout */
-            --max-width: 1280px;
+            --bg-dark: #020617;
+            --card-bg: rgba(30, 41, 59, 0.4);
+            --border: rgba(255, 255, 255, 0.08);
+            --primary: #6366f1;
+            --primary-glow: rgba(99, 102, 241, 0.4);
+            --accent: #06b6d4;
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
             --nav-height: 80px;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
+        
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-deep);
+            background-color: var(--bg-dark);
             color: var(--text-main);
+            font-family: 'Inter', sans-serif;
             overflow-x: hidden;
-            line-height: 1.6;
         }
 
-        /* --- Animated Grid Background --- */
-        .background-grid {
-            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-            background-size: 50px 50px;
-            background-image: 
-                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            transform: perspective(500px) rotateX(60deg);
-            transform-origin: top center;
+        h1, h2, h3, .brand { font-family: 'Outfit', sans-serif; }
+
+        /* --- Shared Background --- */
+        .bg-grid {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
             z-index: -2;
-            animation: gridMove 20s linear infinite;
+            mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
         }
         
-        .background-glow {
+        .bg-glow {
             position: fixed; top: -20%; left: 50%; transform: translateX(-50%);
-            width: 80vw; height: 80vw;
-            background: radial-gradient(circle, rgba(112, 0, 255, 0.2) 0%, transparent 70%);
-            filter: blur(80px);
+            width: 800px; height: 800px;
+            background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
+            filter: blur(100px);
             z-index: -1;
-        }
-
-        @keyframes gridMove {
-            0% { transform: perspective(500px) rotateX(60deg) translateY(0); }
-            100% { transform: perspective(500px) rotateX(60deg) translateY(50px); }
+            opacity: 0.6;
         }
 
         /* --- Navbar --- */
-        header {
-            position: fixed; top: 0; left: 0; right: 0;
+        nav {
             height: var(--nav-height);
-            display: flex; align-items: center; justify-content: center;
-            z-index: 100;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 5%;
+            border-bottom: 1px solid var(--border);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            transition: all 0.3s ease;
-        }
-        
-        header.scrolled { background: rgba(3, 0, 20, 0.8); }
-
-        .nav-container {
-            width: 100%; max-width: var(--max-width);
-            padding: 0 2rem;
-            display: flex; justify-content: space-between; align-items: center;
+            position: fixed; width: 100%; top: 0; z-index: 100;
         }
 
-        .logo {
-            font-size: 1.5rem; font-weight: 700;
-            display: flex; align-items: center; gap: 10px;
-            text-decoration: none; color: white;
-        }
-        
-        .logo img { width: 35px; border-radius: 8px; }
+        .brand { font-size: 1.5rem; font-weight: 700; color: white; text-decoration: none; display: flex; align-items: center; gap: 10px; }
+        .brand i { color: var(--primary); }
 
-        .nav-menu { display: flex; gap: 2rem; align-items: center; }
-        .nav-link { 
-            color: var(--text-muted); text-decoration: none; font-size: 0.95rem; font-weight: 500;
-            transition: color 0.3s;
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { color: var(--text-dim); text-decoration: none; transition: 0.3s; font-size: 0.95rem; }
+        .nav-links a:hover, .nav-links a.active { color: white; }
+
+        .btn {
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.3s;
+            display: inline-flex; align-items: center; gap: 8px;
+            cursor: pointer;
+            border: 1px solid transparent;
         }
-        .nav-link:hover { color: white; }
 
         .btn-primary {
-            background: linear-gradient(90deg, var(--primary), #5b21b6);
-            padding: 0.6rem 1.5rem; border-radius: 50px;
-            color: white; font-weight: 600; text-decoration: none;
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: all 0.3s ease;
-            box-shadow: 0 0 15px rgba(112, 0, 255, 0.3);
+            background: linear-gradient(135deg, var(--primary), #4f46e5);
+            color: white;
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
         }
-        
-        .btn-primary:hover { 
-            transform: translateY(-2px); 
-            box-shadow: 0 0 25px rgba(112, 0, 255, 0.5); 
-        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(99, 102, 241, 0.5); }
 
-        /* --- Hero Section --- */
+        /* --- Hero --- */
         .hero {
             min-height: 100vh;
-            display: flex; align-items: center;
+            display: flex; align-items: center; justify-content: center;
             padding-top: var(--nav-height);
-            max-width: var(--max-width); margin: 0 auto;
-            position: relative;
+            text-align: center;
+            flex-direction: column;
+            padding-bottom: 50px;
         }
 
-        .hero-content {
-            display: grid; grid-template-columns: 1fr 1fr;
-            gap: 4rem; align-items: center;
-            padding: 2rem;
-        }
-
-        .hero-text h1 {
-            font-size: clamp(3rem, 5vw, 4.5rem);
-            line-height: 1.1; font-weight: 800;
-            margin-bottom: 1.5rem;
-            letter-spacing: -1px;
-        }
-
-        .gradient-text {
+        .hero h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
             background: linear-gradient(to right, #fff, var(--accent));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .hero-text p {
-            font-size: 1.2rem; color: var(--text-muted);
-            margin-bottom: 2.5rem; max-width: 500px;
-        }
+        .hero p { color: var(--text-dim); font-size: 1.2rem; max-width: 600px; margin-bottom: 40px; }
 
-        /* --- Interactive Code Terminal --- */
-        .terminal-window {
-            background: #0d1117;
+        /* --- Terminal Mockup --- */
+        .terminal {
+            width: 90%; max-width: 800px;
+            background: #0f172a;
+            border: 1px solid var(--border);
             border-radius: 12px;
-            border: 1px solid var(--border-light);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
             overflow: hidden;
-            font-family: 'Fira Code', monospace;
-            position: relative;
+            text-align: left;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            margin-top: 40px;
         }
 
         .terminal-header {
-            background: #161b22; padding: 12px 20px;
-            display: flex; justify-content: space-between; align-items: center;
-            border-bottom: 1px solid var(--border-light);
+            padding: 12px 20px; background: #1e293b;
+            display: flex; gap: 8px; border-bottom: 1px solid var(--border);
         }
-
-        .dots { display: flex; gap: 8px; }
         .dot { width: 12px; height: 12px; border-radius: 50%; }
-        .red { background: #ff5f56; } .yellow { background: #ffbd2e; } .green { background: #27c93f; }
+        .red { background: #ef4444; } .yellow { background: #eab308; } .green { background: #22c55e; }
 
-        .lang-tabs { display: flex; gap: 15px; }
-        .tab { 
-            font-size: 0.8rem; color: var(--text-muted); cursor: pointer; 
-            padding: 4px 8px; border-radius: 4px; transition: 0.2s;
-        }
-        .tab.active { background: rgba(255,255,255,0.1); color: white; }
-
-        .terminal-body { padding: 20px; min-height: 300px; position: relative; }
+        .terminal-body { padding: 25px; font-family: 'Fira Code', monospace; color: #e2e8f0; font-size: 0.9rem; }
+        .code-keyword { color: #c084fc; }
+        .code-str { color: #22d3ee; }
         
-        pre { white-space: pre-wrap; color: #e6edf3; font-size: 0.9rem; }
-        
-        .code-keyword { color: #ff7b72; }
-        .code-string { color: #a5d6ff; }
-        .code-func { color: #d2a8ff; }
-        .code-comment { color: #8b949e; }
-
-        .copy-btn {
-            position: absolute; top: 15px; right: 15px;
-            background: rgba(255,255,255,0.1); border: none; color: #fff;
-            padding: 5px 10px; border-radius: 6px; cursor: pointer;
-            font-size: 0.8rem; opacity: 0; transition: 0.3s;
-        }
-        .terminal-window:hover .copy-btn { opacity: 1; }
-
-        /* --- Bento Grid Features --- */
-        .features-section { padding: 6rem 2rem; max-width: var(--max-width); margin: 0 auto; }
-        
-        .section-title { text-align: center; margin-bottom: 4rem; }
-        .section-title h2 { font-size: 2.5rem; margin-bottom: 1rem; }
-        
-        .bento-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: repeat(2, 300px);
-            gap: 20px;
+        /* --- Features Grid --- */
+        .features { padding: 80px 5%; max-width: 1200px; margin: 0 auto; }
+        .grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
         }
 
-        .bento-card {
+        .card {
             background: var(--card-bg);
-            border: 1px solid var(--border-light);
-            border-radius: 24px;
-            padding: 2rem;
-            display: flex; flex-direction: column; justify-content: space-between;
-            transition: transform 0.3s, border-color 0.3s;
-            position: relative; overflow: hidden;
+            border: 1px solid var(--border);
+            padding: 30px;
+            border-radius: 16px;
+            transition: 0.3s;
             backdrop-filter: blur(10px);
         }
-        
-        .bento-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
-        }
 
-        /* Bento Sizes */
-        .span-2 { grid-column: span 2; }
-        .span-1 { grid-column: span 1; }
-        
-        .card-icon { 
-            font-size: 2rem; margin-bottom: 1rem; 
-            width: 50px; height: 50px; 
-            background: rgba(255,255,255,0.05); 
-            display: flex; align-items: center; justify-content: center; 
-            border-radius: 12px; color: var(--accent);
-        }
+        .card:hover { border-color: var(--primary); transform: translateY(-5px); }
+        .card i { font-size: 2rem; color: var(--primary); margin-bottom: 20px; }
+        .card h3 { font-size: 1.4rem; margin-bottom: 10px; }
+        .card p { color: var(--text-dim); line-height: 1.6; }
 
-        .card-title { font-size: 1.5rem; margin-bottom: 0.5rem; font-weight: 600; }
-        .card-desc { color: var(--text-muted); font-size: 0.95rem; }
-
-        /* --- Stats Strip --- */
-        .stats-strip {
-            border-top: 1px solid var(--border-light);
-            border-bottom: 1px solid var(--border-light);
-            background: rgba(0,0,0,0.3);
-            padding: 3rem 0;
-            margin: 4rem 0;
+        @media(max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .nav-links { display: none; }
         }
-        
-        .stats-grid {
-            max-width: var(--max-width); margin: 0 auto;
-            display: flex; justify-content: space-around; flex-wrap: wrap;
-            text-align: center;
-        }
-        
-        .stat-num { font-size: 3rem; font-weight: 800; display: block; color: white; }
-        .stat-label { color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; }
-
-        /* --- Footer --- */
-        footer {
-            border-top: 1px solid var(--border-light);
-            padding: 4rem 2rem;
-            background: #02040a;
-        }
-        
-        .footer-content {
-            max-width: var(--max-width); margin: 0 auto;
-            display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem;
-        }
-        
-        .footer-brand p { max-width: 300px; margin-top: 1rem; color: var(--text-muted); font-size: 0.9rem; }
-        
-        .footer-links h4 { color: white; margin-bottom: 1rem; }
-        .footer-links a { display: block; color: var(--text-muted); text-decoration: none; margin-bottom: 0.5rem; transition: 0.2s; }
-        .footer-links a:hover { color: var(--accent); }
-
-        /* --- Mobile Responsive --- */
-        .mobile-toggle { display: none; color: white; font-size: 1.5rem; cursor: pointer; }
-
-        @media (max-width: 1024px) {
-            .bento-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
-            .span-2 { grid-column: span 2; }
-        }
-
-        @media (max-width: 768px) {
-            .hero-content { grid-template-columns: 1fr; text-align: center; padding-top: 2rem; }
-            .hero-text p { margin: 0 auto 2rem; }
-            .nav-menu { display: none; }
-            .mobile-toggle { display: block; }
-            .bento-grid { grid-template-columns: 1fr; }
-            .span-2, .span-1 { grid-column: span 1; }
-            .stats-grid { gap: 2rem; }
-            .terminal-window { display: none; } /* Hide code on very small screens or make separate view */
-        }
-        
-        @media (min-width: 769px) {
-            /* Fix terminal showing on tablets/desktop */
-            .terminal-window { display: block; } 
-        }
-
-        /* --- Animations --- */
-        .fade-in-up { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
-        .visible { opacity: 1; transform: translateY(0); }
-
     </style>
 </head>
 <body>
 
-    <!-- Backgrounds -->
-    <div class="background-grid"></div>
-    <div class="background-glow"></div>
+    <div class="bg-grid"></div>
+    <div class="bg-glow"></div>
 
-    <!-- Navigation -->
-    <header id="navbar">
-        <div class="nav-container">
-            <a href="#" class="logo">
-                <img src="/src/icon.png" alt="Xyro">
-                Xyro API
-            </a>
-            
-            <nav class="nav-menu">
-                <a href="/" class="nav-link">Home</a>
-                <a href="#" class="nav-link">Features</a>
-                <a href="#" class="nav-link">Pricing</a>
-                <!-- Link Fixed Below -->
-                <a href="/docs.html" class="nav-link">Documentation</a>
-                <a href="#" class="btn-primary">Dashboard <i class="fas fa-arrow-right" style="margin-left: 5px; font-size: 0.8em;"></i></a>
-            </nav>
-
-            <div class="mobile-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
+    <nav>
+        <a href="index.html" class="brand"><i class="fas fa-layer-group"></i> API HUB</a>
+        <div class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="docs.html">Tools & APIs</a>
+            <a href="#">Documentation</a>
         </div>
-    </header>
+        <a href="app.html" class="btn btn-primary">Documentation</a>
+    </nav>
 
-    <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-content">
-            <div class="hero-text fade-in-up">
-                <div style="display: inline-block; padding: 5px 15px; background: rgba(112,0,255,0.1); border-radius: 20px; color: var(--accent); font-size: 0.8rem; font-weight: 600; margin-bottom: 20px; border: 1px solid rgba(0,240,255,0.2);">
-                    ✨ Version 2.0 Now Live
-                </div>
-                <h1>The API for <br><span class="gradient-text">Modern Developers</span></h1>
-                <p>
-                    Integrate powerful tools into your applications in minutes. 
-                    From AI processing to data scraping, Xyro provides the reliable infrastructure you need to scale.
-                </p>
-                <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; @media(min-width:768px){justify-content: flex-start;}">
-                    <!-- Link Fixed Below -->
-                    <a href="/docs.html" class="btn-primary" style="padding: 15px 30px; font-size: 1.1rem;">Start Building Free</a>
-                    <a href="https://github.com/FlowFalcon" style="padding: 15px 30px; border-radius: 50px; border: 1px solid var(--border-light); color: white; text-decoration: none; font-weight: 500; display: flex; align-items: center; gap: 8px;">
-                        <i class="fab fa-github"></i> Star on GitHub
-                    </a>
-                </div>
+        <div style="padding: 5px 15px; background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.3); border-radius: 20px; margin-bottom: 20px; color: var(--accent); font-size: 0.9rem;">
+            ✨ V2.0 System Online
+        </div>
+        <h1>The Ultimate<br>Developer Ecosystem</h1>
+        <p>Access premium APIs, source codes, and automation tools. Built for speed, secured for enterprise.</p>
+        
+        <div style="display: flex; gap: 15px;">
+            <a href="app.html" class="btn btn-primary">Documentation</a>
+            <a href="#" class="btn" style="border: 1px solid var(--border); background: rgba(255,255,255,0.05); color: white;">GitHub Repo</a>
+        </div>
+
+        <div class="terminal">
+            <div class="terminal-header">
+                <div class="dot red"></div>
+                <div class="dot yellow"></div>
+                <div class="dot green"></div>
             </div>
-
-            <!-- Interactive Terminal -->
-            <div class="terminal-window fade-in-up" style="transition-delay: 0.2s;">
-                <button class="copy-btn" onclick="copyCode()"><i class="fas fa-copy"></i> Copy</button>
-                <div class="terminal-header">
-                    <div class="dots">
-                        <div class="dot red"></div>
-                        <div class="dot yellow"></div>
-                        <div class="dot green"></div>
-                    </div>
-                    <div class="lang-tabs">
-                        <div class="tab active" onclick="switchLang('node')">Node.js</div>
-                        <div class="tab" onclick="switchLang('python')">Python</div>
-                        <div class="tab" onclick="switchLang('curl')">cURL</div>
-                    </div>
-                </div>
-                <div class="terminal-body">
-                    <pre id="codeBlock">
-<span class="code-comment">// Install package</span>
-<span class="code-keyword">const</span> xyro <span class="code-keyword">=</span> <span class="code-func">require</span>(<span class="code-string">'xyro-api'</span>);
-
-<span class="code-keyword">async function</span> <span class="code-func">main</span>() {
-  <span class="code-comment">// Initialize client</span>
-  <span class="code-keyword">const</span> response <span class="code-keyword">=</span> <span class="code-keyword">await</span> xyro.<span class="code-func">get</span>(<span class="code-string">'/ai/chat'</span>, {
-     message: <span class="code-string">"Hello World"</span>,
-     model: <span class="code-string">"gpt-4"</span>
-  });
-
-  console.<span class="code-func">log</span>(response.data);
-}</pre>
-                </div>
+            <div class="terminal-body">
+                <p><span class="code-keyword">const</span> API = <span class="code-keyword">require</span>(<span class="code-str">'FAZ-api'</span>);</p>
+                <p>&nbsp;</p>
+                <p><span class="code-keyword">async function</span> init() {</p>
+                <p>&nbsp;&nbsp;<span class="code-keyword">const</span> data = <span class="code-keyword">await</span> FAZ.connect({</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;key: <span class="code-str">'YOUR_API_KEY'</span>,</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;mode: <span class="code-str">'turbo'</span></p>
+                <p>&nbsp;&nbsp;});</p>
+                <p>&nbsp;&nbsp;console.log(<span class="code-str">"System Online"</span>);</p>
+                <p>}</p>
             </div>
         </div>
     </section>
 
-    <!-- Stats -->
-    <div class="stats-strip">
-        <div class="stats-grid">
-            <div class="stat-item fade-in-up">
-                <span class="stat-num" id="stat1">0</span>
-                <span class="stat-label">Requests Served</span>
+    <section class="features">
+        <div class="grid">
+            <div class="card">
+                <i class="fas fa-bolt"></i>
+                <h3>Lightning Fast</h3>
+                <p>APIs optimized for sub-millisecond latency using edge computing networks.</p>
             </div>
-            <div class="stat-item fade-in-up" style="transition-delay: 0.1s;">
-                <span class="stat-num" style="color: var(--accent);">99.9%</span>
-                <span class="stat-label">System Uptime</span>
+            <div class="card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Secure Core</h3>
+                <p>Enterprise-grade encryption and automated threat protection built-in.</p>
             </div>
-            <div class="stat-item fade-in-up" style="transition-delay: 0.2s;">
-                <span class="stat-num" style="color: var(--primary-glow);">50ms</span>
-                <span class="stat-label">Avg Latency</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- Features Bento Grid -->
-    <section class="features-section">
-        <div class="section-title fade-in-up">
-            <h2>Everything you need</h2>
-            <p style="color: var(--text-muted);">A complete suite of tools built for performance.</p>
-        </div>
-
-        <div class="bento-grid">
-            <!-- Card 1: Large -->
-            <div class="bento-card span-2 fade-in-up">
-                <div class="card-icon"><i class="fas fa-bolt"></i></div>
-                <h3 class="card-title">Lightning Performance</h3>
-                <p class="card-desc">
-                    Our edge network ensures your requests are processed in milliseconds, no matter where your users are located. Redis caching enabled by default.
-                </p>
-                <div style="margin-top: auto; height: 100px; background: linear-gradient(transparent, rgba(112,0,255,0.1)); border-radius: 12px; position: relative;">
-                    <!-- Decorative bars -->
-                    <div style="position: absolute; bottom: 0; left: 10%; width: 20px; height: 60%; background: var(--primary);"></div>
-                    <div style="position: absolute; bottom: 0; left: 25%; width: 20px; height: 80%; background: var(--accent);"></div>
-                    <div style="position: absolute; bottom: 0; left: 40%; width: 20px; height: 40%; background: #fff);"></div>
-                </div>
-            </div>
-
-            <!-- Card 2: Square -->
-            <div class="bento-card span-1 fade-in-up">
-                <div class="card-icon"><i class="fas fa-shield-alt"></i></div>
-                <h3 class="card-title">Secure</h3>
-                <p class="card-desc">Enterprise-grade encryption and automatic DDoS protection included.</p>
-            </div>
-
-            <!-- Card 3: Square -->
-            <div class="bento-card span-1 fade-in-up">
-                <div class="card-icon"><i class="fas fa-code"></i></div>
-                <h3 class="card-title">Simple SDK</h3>
-                <p class="card-desc">Copy-paste integration for Node.js, Python, and Go.</p>
-            </div>
-
-            <!-- Card 4: Square -->
-            <div class="bento-card span-1 fade-in-up">
-                <div class="card-icon"><i class="fas fa-robot"></i></div>
-                <h3 class="card-title">AI Powered</h3>
-                <p class="card-desc">Access LLMs and Image Gen models via a single standardized API.</p>
-            </div>
-
-            <!-- Card 5: Wide -->
-            <div class="bento-card span-2 fade-in-up">
-                <div class="card-icon"><i class="fas fa-chart-line"></i></div>
-                <h3 class="card-title">Real-time Analytics</h3>
-                <p class="card-desc">Track usage, error rates, and latency in your dedicated dashboard.</p>
-            </div>
-
-            <!-- Card 6: Square -->
-            <div class="bento-card span-1 fade-in-up">
-                <div class="card-icon"><i class="fas fa-users"></i></div>
-                <h3 class="card-title">Community</h3>
-                <p class="card-desc">Join 5,000+ developers on our Discord server.</p>
+            <div class="card">
+                <i class="fas fa-code"></i>
+                <h3>Developer First</h3>
+                <p>Comprehensive documentation and copy-paste examples for every endpoint.</p>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-brand">
-                <a href="#" class="logo"><img src="/src/icon.png" width="30" alt=""> Xyro API</a>
-                <p>Empowering the next generation of software with robust and scalable API solutions.</p>
-                <div style="margin-top: 1rem; display: flex; gap: 1rem;">
-                    <a href="#" style="color: white;"><i class="fab fa-twitter"></i></a>
-                    <a href="#" style="color: white;"><i class="fab fa-github"></i></a>
-                    <a href="#" style="color: white;"><i class="fab fa-discord"></i></a>
-                </div>
-            </div>
-            
-            <div class="footer-links">
-                <h4>Product</h4>
-                <a href="#">Features</a>
-                <a href="#">Pricing</a>
-                <a href="#">Changelog</a>
-                <a href="#">Status</a>
-            </div>
-
-            <div class="footer-links">
-                <h4>Resources</h4>
-                <!-- Link Fixed Below -->
-                <a href="/docs.html">Documentation</a>
-                <a href="#">API Reference</a>
-                <a href="#">Community</a>
-                <a href="#">Help Center</a>
-            </div>
-
-            <div class="footer-links">
-                <h4>Legal</h4>
-                <a href="#">Privacy</a>
-                <a href="#">Terms</a>
-            </div>
-        </div>
-        <div style="text-align: center; margin-top: 3rem; color: #475569; font-size: 0.8rem;">
-            &copy; 2024 Xyro Official. All rights reserved.
-        </div>
+    <footer style="text-align: center; padding: 40px; border-top: 1px solid var(--border); color: var(--text-dim); margin-top: 50px;">
+        <p>&copy; 2025 FAZ OFFICIAL. All rights reserved.</p>
     </footer>
 
-    <script>
-        // Navbar Blur Effect
-        window.addEventListener('scroll', () => {
-            const header = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
-        // Intersection Observer for Animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
-
-        // Number Counter Animation
-        function animateValue(obj, start, end, duration) {
-            let startTimestamp = null;
-            const step = (timestamp) => {
-                if (!startTimestamp) startTimestamp = timestamp;
-                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-                obj.innerHTML = Math.floor(progress * (end - start) + start).toLocaleString() + "+";
-                if (progress < 1) {
-                    window.requestAnimationFrame(step);
-                }
-            };
-            window.requestAnimationFrame(step);
-        }
-        
-        // Trigger counter when in view
-        let counterStarted = false;
-        const statObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !counterStarted) {
-                    animateValue(document.getElementById("stat1"), 0, 1500000, 2000);
-                    counterStarted = true;
-                }
-            });
-        });
-        statObserver.observe(document.querySelector('.stats-strip'));
-
-        // Code Switching Logic
-        const codeBlocks = {
-            node: `<span class="code-comment">// Install package</span>
-<span class="code-keyword">const</span> xyro <span class="code-keyword">=</span> <span class="code-func">require</span>(<span class="code-string">'xyro-api'</span>);
-
-<span class="code-keyword">async function</span> <span class="code-func">main</span>() {
-  <span class="code-keyword">const</span> response <span class="code-keyword">=</span> <span class="code-keyword">await</span> xyro.<span class="code-func">get</span>(<span class="code-string">'/ai/chat'</span>, {
-     message: <span class="code-string">"Hello World"</span>
-  });
-  console.<span class="code-func">log</span>(response.data);
-}`,
-            python: `<span class="code-comment"># Install package</span>
-<span class="code-keyword">import</span> xyro_api <span class="code-keyword">as</span> xyro
-
-<span class="code-keyword">def</span> <span class="code-func">main</span>():
-    response = xyro.<span class="code-func">get</span>(
-        <span class="code-string">"/ai/chat"</span>, 
-        message=<span class="code-string">"Hello World"</span>
-    )
-    <span class="code-func">print</span>(response.json())`,
-            curl: `<span class="code-comment"># Terminal Request</span>
-curl -X GET https://api.xyro.com/v1/ai/chat \\
-  -H <span class="code-string">"Authorization: Bearer YOUR_KEY"</span> \\
-  -d <span class="code-string">'{"message": "Hello World"}'</span>`
-        };
-
-        function switchLang(lang) {
-            // Update Code
-            document.getElementById('codeBlock').innerHTML = codeBlocks[lang];
-            
-            // Update Tabs
-            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-            event.target.classList.add('active');
-        }
-
-        function copyCode() {
-            const text = document.getElementById('codeBlock').innerText;
-            navigator.clipboard.writeText(text);
-            const btn = document.querySelector('.copy-btn');
-            btn.innerHTML = '<i class="fas fa-check"></i> Copied';
-            setTimeout(() => {
-                btn.innerHTML = '<i class="fas fa-copy"></i> Copy';
-            }, 2000);
-        }
-    </script>
 </body>
 </html>
