@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAZ | Tools Hub</title>
+    <title>NEXUS | Ultimate Hub</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@300;400;500;600&family=Fira+Code&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -41,7 +41,7 @@
         .bg-glow {
             position: fixed; top: 20%; left: 80%;
             width: 600px; height: 600px;
-            background: radial-gradient(circle, rgba(6, 182, 212, 0.15) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
             filter: blur(80px);
             z-index: -1;
         }
@@ -60,27 +60,19 @@
         .brand i { color: var(--primary); }
         
         /* --- Container --- */
-        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 40px 20px; }
 
-        /* --- Search & Tabs --- */
+        /* --- Controls --- */
         .controls-area {
-            display: flex; flex-direction: column; align-items: center; gap: 30px; margin-bottom: 50px;
+            display: flex; flex-direction: column; align-items: center; gap: 20px; margin-bottom: 40px;
         }
 
-        .search-box {
-            position: relative; width: 100%; max-width: 600px;
-        }
-
+        .search-box { position: relative; width: 100%; max-width: 600px; }
         .search-input {
-            width: 100%;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid var(--border);
-            padding: 16px 20px 16px 50px;
-            border-radius: 12px;
-            color: white; font-size: 1rem; font-family: 'Inter', sans-serif;
+            width: 100%; background: rgba(255,255,255,0.03); border: 1px solid var(--border);
+            padding: 16px 20px 16px 50px; border-radius: 12px; color: white; font-size: 1rem;
             transition: 0.3s;
         }
-
         .search-input:focus { border-color: var(--primary); background: rgba(255,255,255,0.05); }
         .search-icon { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: var(--text-dim); }
 
@@ -88,82 +80,82 @@
             display: flex; gap: 10px; background: rgba(255,255,255,0.03);
             padding: 5px; border-radius: 10px; border: 1px solid var(--border);
         }
-
         .tab-btn {
             background: transparent; border: none; color: var(--text-dim);
-            padding: 8px 25px; border-radius: 6px; cursor: pointer;
-            font-weight: 500; transition: 0.3s;
+            padding: 8px 25px; border-radius: 6px; cursor: pointer; font-weight: 600; transition: 0.3s;
         }
-
         .tab-btn.active { background: var(--primary); color: white; }
         .tab-btn:hover:not(.active) { color: white; }
 
         /* --- Grid & Cards --- */
-        .grid {
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 25px;
-        }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 20px; }
 
         .tool-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 25px;
-            transition: 0.3s;
-            display: flex; flex-direction: column;
+            background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px;
+            padding: 20px; transition: 0.3s; display: flex; flex-direction: column;
         }
-
         .tool-card:hover { border-color: var(--primary); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
 
-        .card-header { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
+        .card-header { display: flex; align-items: center; gap: 15px; margin-bottom: 12px; }
         .icon-box {
-            width: 45px; height: 45px; background: rgba(255,255,255,0.05);
-            border-radius: 10px; display: flex; align-items: center; justify-content: center;
-            color: var(--accent); font-size: 1.2rem;
+            width: 45px; height: 45px; background: rgba(255,255,255,0.05); border-radius: 10px;
+            display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: 1.2rem;
         }
-
         .card-title { font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 1.1rem; }
-        .card-desc { color: var(--text-dim); font-size: 0.9rem; line-height: 1.5; margin-bottom: 20px; flex-grow: 1; }
+        .card-desc { color: var(--text-dim); font-size: 0.85rem; line-height: 1.5; margin-bottom: 15px; flex-grow: 1; }
 
         .code-snippet {
-            background: #0f172a; padding: 10px; border-radius: 6px;
-            font-family: 'Fira Code', monospace; font-size: 0.75rem; color: #a5b4fc;
+            background: #0f172a; padding: 8px 12px; border-radius: 6px;
+            font-family: 'Fira Code', monospace; font-size: 0.7rem; color: #a5b4fc;
             margin-bottom: 15px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
             border: 1px dashed var(--border);
         }
 
         .actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        
         .btn-action {
             padding: 10px; border: none; border-radius: 6px; cursor: pointer;
-            font-weight: 600; font-size: 0.85rem; display: flex; align-items: center; justify-content: center; gap: 8px;
-            transition: 0.2s;
+            font-weight: 600; font-size: 0.8rem; display: flex; align-items: center; justify-content: center; gap: 6px;
+            transition: 0.2s; text-decoration: none; color: inherit;
         }
-
         .btn-copy { background: rgba(99, 102, 241, 0.1); color: var(--primary); border: 1px solid rgba(99, 102, 241, 0.2); }
         .btn-copy:hover { background: var(--primary); color: white; }
-
         .btn-down { background: rgba(255, 255, 255, 0.05); color: white; border: 1px solid var(--border); }
         .btn-down:hover { background: rgba(255, 255, 255, 0.1); }
 
-        /* --- Sections Logic --- */
-        .section-view { display: none; animation: fadeIn 0.5s ease; }
+        /* --- Sections --- */
+        .section-view { display: none; animation: fadeIn 0.4s ease; }
         .section-view.active { display: block; }
-
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* --- Footer --- */
+        .wa-footer {
+            margin-top: 60px; padding: 30px; background: rgba(37, 211, 102, 0.1);
+            border: 1px solid rgba(37, 211, 102, 0.2); border-radius: 20px; text-align: center;
+        }
+        .wa-btn {
+            display: inline-flex; align-items: center; gap: 10px; background: #25D366; color: #000;
+            padding: 12px 30px; border-radius: 50px; font-weight: 700; text-decoration: none; margin-top: 15px;
+            transition: 0.3s;
+        }
+        .wa-btn:hover { box-shadow: 0 0 20px rgba(37, 211, 102, 0.6); transform: scale(1.05); }
 
         /* --- Toast --- */
         .toast {
-            position: fixed; bottom: 30px; right: 30px;
-            background: #06b6d4; color: #000; padding: 12px 24px;
-            border-radius: 8px; font-weight: 600; transform: translateY(100px);
-            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            display: flex; align-items: center; gap: 10px;
+            position: fixed; bottom: 30px; right: 30px; background: #06b6d4; color: #000;
+            padding: 12px 24px; border-radius: 8px; font-weight: 600; transform: translateY(100px);
+            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); display: flex; align-items: center; gap: 10px; z-index: 999;
         }
         .toast.show { transform: translateY(0); }
 
-        @media(max-width: 768px) {
-            .grid { grid-template-columns: 1fr; }
+        /* Sub-category badges for Source Code */
+        .cat-badge {
+            display: inline-block; font-size: 0.7rem; padding: 2px 8px; border-radius: 4px; margin-bottom: 5px; font-weight: 600;
         }
+        .badge-html { background: rgba(255, 87, 34, 0.2); color: #ff8a65; }
+        .badge-bot { background: rgba(33, 150, 243, 0.2); color: #64b5f6; }
+        .badge-termux { background: rgba(76, 175, 80, 0.2); color: #81c784; }
+
+        @media(max-width: 768px) { .grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -172,131 +164,496 @@
     <div class="bg-glow"></div>
 
     <nav>
-        <a href="index.html" class="brand"><i class="fas fa-layer-group"></i>FAZ</a>
-        <div>
-            <a href="index.html" style="color: var(--text-dim); text-decoration: none; font-size: 0.9rem;">Back to Home</a>
-        </div>
+        <a href="#" class="brand"><i class="fas fa-layer-group"></i> NEXUS</a>
+        <div style="font-size: 0.8rem; color: var(--text-dim);">V3.0 ULTIMATE</div>
     </nav>
 
     <div class="container">
         
         <!-- Controls -->
         <div class="controls-area">
-            <h2 style="font-family: 'Outfit'; font-size: 2rem;">Developer Resources</h2>
+            <h2 style="font-family: 'Outfit'; font-size: 2.2rem; text-align: center;">Resource Library</h2>
             
             <div class="search-box">
                 <i class="fas fa-search search-icon"></i>
-                <input type="text" id="searchInput" class="search-input" placeholder="Search APIs, Scripts, or Tools...">
+                <input type="text" id="searchInput" class="search-input" placeholder="Search APIs, Bots, Scripts...">
             </div>
 
             <div class="tabs">
-                <button class="tab-btn active" onclick="switchTab('apis')">REST APIs</button>
+                <button class="tab-btn active" onclick="switchTab('apis')">APIs Collection</button>
                 <button class="tab-btn" onclick="switchTab('source')">Source Codes</button>
             </div>
         </div>
 
-        <!-- API SECTION -->
+        <!-- ======================= API SECTION ======================= -->
         <div id="apis" class="section-view active">
-            <div class="grid" id="api-grid">
+            <div class="grid">
                 
-                <!-- Card Item -->
+                <!-- Social Media -->
                 <div class="tool-card searchable" data-keys="telegram story">
-                    <div class="card-header">
-                        <div class="icon-box"><i class="fab fa-telegram"></i></div>
-                        <div class="card-title">Telegram Story</div>
-                    </div>
-                    <p class="card-desc">Fetch stories directly from TG servers anonymously.</p>
+                    <div class="card-header"><div class="icon-box"><i class="fab fa-telegram"></i></div><div class="card-title">Telegram Story</div></div>
+                    <p class="card-desc">Download stories anonymously.</p>
                     <div class="code-snippet">https://tgstory-down.apis-bj-devs.workers.dev/?url=</div>
                     <div class="actions">
                         <button class="btn-action btn-copy" data-val="https://tgstory-down.apis-bj-devs.workers.dev/?url=t.me/username"><i class="fas fa-copy"></i> Copy</button>
-                        <button class="btn-action btn-down" data-val="https://tgstory-down.apis-bj-devs.workers.dev/?url=t.me/username" data-name="TG_API"><i class="fas fa-file-alt"></i> Save</button>
+                        <button class="btn-action btn-down" data-val="https://tgstory-down.apis-bj-devs.workers.dev/?url=t.me/username" data-name="TG_Story"><i class="fas fa-file-alt"></i> Save</button>
                     </div>
                 </div>
 
-                <!-- Card Item -->
                 <div class="tool-card searchable" data-keys="spotify music">
-                    <div class="card-header">
-                        <div class="icon-box"><i class="fab fa-spotify"></i></div>
-                        <div class="card-title">Spotify Downloader</div>
-                    </div>
-                    <p class="card-desc">High quality audio extraction endpoint.</p>
-                    <div class="code-snippet">https://spotify-down.apis-bj-devs.workers.dev/</div>
+                    <div class="card-header"><div class="icon-box"><i class="fab fa-spotify"></i></div><div class="card-title">Spotify Downloader</div></div>
+                    <p class="card-desc">Download music from Spotify.</p>
+                    <div class="code-snippet">https://spotify-down.apis-bj-devs.workers.dev/?url=</div>
                     <div class="actions">
-                        <button class="btn-action btn-copy" data-val="https://spotify-down.apis-bj-devs.workers.dev/?url="><i class="fas fa-copy"></i> Copy</button>
-                        <button class="btn-action btn-down" data-val="https://spotify-down.apis-bj-devs.workers.dev/?url=" data-name="Spotify_API"><i class="fas fa-file-alt"></i> Save</button>
+                        <button class="btn-action btn-copy" data-val="https://spotify-down.apis-bj-devs.workers.dev/?url=https://open.spotify.com/track"><i class="fas fa-copy"></i> Copy</button>
+                        <button class="btn-action btn-down" data-val="https://spotify-down.apis-bj-devs.workers.dev/?url=https://open.spotify.com/track" data-name="Spotify_API"><i class="fas fa-file-alt"></i> Save</button>
                     </div>
                 </div>
 
-                <!-- Card Item -->
-                <div class="tool-card searchable" data-keys="ai qwen chat">
-                    <div class="card-header">
-                        <div class="icon-box"><i class="fas fa-brain"></i></div>
-                        <div class="card-title">Qwen AI Model</div>
-                    </div>
-                    <p class="card-desc">Conversational AI integration for your apps.</p>
-                    <div class="code-snippet">https://qwen-ai.apis-bj-devs.workers.dev/?text=</div>
-                    <div class="actions">
-                        <button class="btn-action btn-copy" data-val="https://qwen-ai.apis-bj-devs.workers.dev/?text=hello"><i class="fas fa-copy"></i> Copy</button>
-                        <button class="btn-action btn-down" data-val="https://qwen-ai.apis-bj-devs.workers.dev/?text=hello" data-name="AI_API"><i class="fas fa-file-alt"></i> Save</button>
-                    </div>
-                </div>
-
-                 <!-- Card Item -->
-                 <div class="tool-card searchable" data-keys="tiktok no watermark">
-                    <div class="card-header">
-                        <div class="icon-box"><i class="fab fa-tiktok"></i></div>
-                        <div class="card-title">TikTok No-WM</div>
-                    </div>
-                    <p class="card-desc">Remove watermarks from TikTok videos.</p>
+                <div class="tool-card searchable" data-keys="tiktok video">
+                    <div class="card-header"><div class="icon-box"><i class="fab fa-tiktok"></i></div><div class="card-title">TikTok Downloader</div></div>
+                    <p class="card-desc">Download TikTok videos no WM.</p>
                     <div class="code-snippet">https://tikwm.com/api/?url=</div>
                     <div class="actions">
                         <button class="btn-action btn-copy" data-val="https://tikwm.com/api/?url="><i class="fas fa-copy"></i> Copy</button>
-                        <button class="btn-action btn-down" data-val="https://tikwm.com/api/?url=" data-name="Tiktok_API"><i class="fas fa-file-alt"></i> Save</button>
+                        <button class="btn-action btn-down" data-val="https://tikwm.com/api/?url=" data-name="TikTok_API"><i class="fas fa-file-alt"></i> Save</button>
+                    </div>
+                </div>
+
+                <!-- AI Tools -->
+                <div class="tool-card searchable" data-keys="qwen ai chat">
+                    <div class="card-header"><div class="icon-box"><i class="fas fa-robot"></i></div><div class="card-title">Qwen AI</div></div>
+                    <p class="card-desc">Qwen model chat integration.</p>
+                    <div class="code-snippet">https://qwen-ai.apis-bj-devs.workers.dev/?text=</div>
+                    <div class="actions">
+                        <button class="btn-action btn-copy" data-val="https://qwen-ai.apis-bj-devs.workers.dev/?text=hello"><i class="fas fa-copy"></i> Copy</button>
+                        <button class="btn-action btn-down" data-val="https://qwen-ai.apis-bj-devs.workers.dev/?text=hello" data-name="Qwen_AI"><i class="fas fa-file-alt"></i> Save</button>
+                    </div>
+                </div>
+
+                <div class="tool-card searchable" data-keys="gemini ai google">
+                    <div class="card-header"><div class="icon-box"><i class="fas fa-brain"></i></div><div class="card-title">Gemini AI</div></div>
+                    <p class="card-desc">Google Gemini 1.5 Flash.</p>
+                    <div class="code-snippet">https://gemini-1-5-flash.bjcoderx.workers.dev/?text=</div>
+                    <div class="actions">
+                        <button class="btn-action btn-copy" data-val="https://gemini-1-5-flash.bjcoderx.workers.dev/?text=hello"><i class="fas fa-copy"></i> Copy</button>
+                        <button class="btn-action btn-down" data-val="https://gemini-1-5-flash.bjcoderx.workers.dev/?text=hello" data-name="Gemini_AI"><i class="fas fa-file-alt"></i> Save</button>
+                    </div>
+                </div>
+
+                <div class="tool-card searchable" data-keys="gpt openai chat">
+                    <div class="card-header"><div class="icon-box"><i class="fas fa-comment"></i></div><div class="card-title">GPT-3.5 API</div></div>
+                    <p class="card-desc">OpenAI GPT-3.5 integration.</p>
+                    <div class="code-snippet">https://gpt-3-5.apis-bj-devs.workers.dev/?prompt=</div>
+                    <div class="actions">
+                        <button class="btn-action btn-copy" data-val="https://gpt-3-5.apis-bj-devs.workers.dev/?prompt=hello"><i class="fas fa-copy"></i> Copy</button>
+                        <button class="btn-action btn-down" data-val="https://gpt-3-5.apis-bj-devs.workers.dev/?prompt=hello" data-name="GPT_API"><i class="fas fa-file-alt"></i> Save</button>
+                    </div>
+                </div>
+
+                <div class="tool-card searchable" data-keys="seaart image gen">
+                    <div class="card-header"><div class="icon-box"><i class="fas fa-palette"></i></div><div class="card-title">SeaArt AI</div></div>
+                    <p class="card-desc">Generate images from text.</p>
+                    <div class="code-snippet">https://seaart-ai.apis-bj-devs.workers.dev/?Prompt=</div>
+                    <div class="actions">
+                        <button class="btn-action btn-copy" data-val="https://seaart-ai.apis-bj-devs.workers.dev/?Prompt=cat"><i class="fas fa-copy"></i> Copy</button>
+                        <button class="btn-action btn-down" data-val="https://seaart-ai.apis-bj-devs.workers.dev/?Prompt=cat" data-name="SeaArt_API"><i class="fas fa-file-alt"></i> Save</button>
+                    </div>
+                </div>
+
+                <div class="tool-card searchable" data-keys="text to image">
+                    <div class="card-header"><div class="icon-box"><i class="fas fa-image"></i></div><div class="card-title">Text to Image</div></div>
+                    <p class="card-desc">Basic Text-to-Image generation.</p>
+                    <div class="code-snippet">https://text-to-img.apis-bj-devs.workers.dev/?prompt=</div>
+                    <div class="actions">
+                        <button class="btn-action btn-copy" data-val="https://text-to-img.apis-bj-devs.workers.dev/?prompt=cute+girl"><i class="fas fa-copy"></i> Copy</button>
+                        <button class="btn-action btn-down" data-val="https://text-to-img.apis-bj-devs.workers.dev/?prompt=cute+girl" data-name="Txt2Img_API"><i class="fas fa-file-alt"></i> Save</button>
+                    </div>
+                </div>
+
+                <div class="tool-card searchable" data-keys="deepseek ai">
+                    <div class="card-header"><div class="icon-box"><i class="fas fa-code"></i></div><div class="card-title">DeepSeek AI</div></div>
+                    <p class="card-desc">DeepSeek coding & chat model.</p>
+                    <div class="code-snippet">https://deepseek-ai.apis-bj-devs.workers.dev/?text=</div>
+                    <div class="actions">
+                        <button class="btn-action btn-copy" data-val="https://deepseek-ai.apis-bj-devs.workers.dev/?text=hello"><i class="fas fa-copy"></i> Copy</button>
+                        <button class="btn-action btn-down" data-val="https://deepseek-ai.apis-bj-devs.workers.dev/?text=hello" data-name="DeepSeek_API"><i class="fas fa-file-alt"></i> Save</button>
+                    </div>
+                </div>
+
+                <div class="tool-card searchable" data-keys="diffusion ai">
+                    <div class="card-header"><div class="icon-box"><i class="fas fa-magic"></i></div><div class="card-title">Diffusion AI</div></div>
+                    <p class="card-desc">Stable Diffusion model.</p>
+                    <div class="code-snippet">https://diffusion-ai.bjcoderx.workers.dev/?prompt=</div>
+                    <div class="actions">
+                        <button class="btn-action btn-copy" data-val="https://diffusion-ai.bjcoderx.workers.dev/?prompt=a+cute+baby"><i class="fas fa-copy"></i> Copy</button>
+                        <button class="btn-action btn-down" data-val="https://diffusion-ai.bjcoderx.workers.dev/?prompt=a+cute+baby" data-name="Diffusion_API"><i class="fas fa-file-alt"></i> Save</button>
+                    </div>
+                </div>
+
+                <!-- Search & Utils -->
+                <div class="tool-card searchable" data-keys="apk search downloader">
+                    <div class="card-header"><div class="icon-box"><i class="fas fa-mobile"></i></div><div class="card-title">APK Search</div></div>
+                    <p class="card-desc">Search Android APKs.</p>
+                    <div class="code-snippet">https://apk-downloader.bjcoderx.workers.dev/?query=</div>
+                    <div class="actions">
+                        <button class="btn-action btn-copy" data-val="https://apk-downloader.bjcoderx.workers.dev/?query=telegram"><i class="fas fa-copy"></i> Copy</button>
+                        <button class="btn-action btn-down" data-val="https://apk-downloader.bjcoderx.workers.dev/?query=telegram" data-name="APK_Search"><i class="fas fa-file-alt"></i> Save</button>
+                    </div>
+                </div>
+
+                <div class="tool-card searchable" data-keys="pinterest search">
+                    <div class="card-header"><div class="icon-box"><i class="fab fa-pinterest"></i></div><div class="card-title">Pinterest Search</div></div>
+                    <p class="card-desc">Search Pinterest images.</p>
+                    <div class="code-snippet">https://pinterest-search.apis-bj-devs.workers.dev/?search=</div>
+                    <div class="actions">
+                        <button class="btn-action btn-copy" data-val="https://pinterest-search.apis-bj-devs.workers.dev/?search=Anime&limit=5"><i class="fas fa-copy"></i> Copy</button>
+                        <button class="btn-action btn-down" data-val="https://pinterest-search.apis-bj-devs.workers.dev/?search=Anime&limit=5" data-name="Pinterest_API"><i class="fas fa-file-alt"></i> Save</button>
+                    </div>
+                </div>
+
+                <div class="tool-card searchable" data-keys="bing search">
+                    <div class="card-header"><div class="icon-box"><i class="fab fa-microsoft"></i></div><div class="card-title">Bing Search</div></div>
+                    <p class="card-desc">Microsoft Bing results.</p>
+                    <div class="code-snippet">https://bing-search.apis-bj-devs.workers.dev/?search=</div>
+                    <div class="actions">
+                        <button class="btn-action btn-copy" data-val="https://bing-search.apis-bj-devs.workers.dev/?search=cats&limit=2"><i class="fas fa-copy"></i> Copy</button>
+                        <button class="btn-action btn-down" data-val="https://bing-search.apis-bj-devs.workers.dev/?search=cats&limit=2" data-name="Bing_API"><i class="fas fa-file-alt"></i> Save</button>
+                    </div>
+                </div>
+
+                <div class="tool-card searchable" data-keys="google search">
+                    <div class="card-header"><div class="icon-box"><i class="fab fa-google"></i></div><div class="card-title">Google Search</div></div>
+                    <p class="card-desc">Google search results.</p>
+                    <div class="code-snippet">https://google-search.bjcoderx.workers.dev/?q=</div>
+                    <div class="actions">
+                        <button class="btn-action btn-copy" data-val="https://google-search.bjcoderx.workers.dev/?q=cats"><i class="fas fa-copy"></i> Copy</button>
+                        <button class="btn-action btn-down" data-val="https://google-search.bjcoderx.workers.dev/?q=cats" data-name="Google_API"><i class="fas fa-file-alt"></i> Save</button>
+                    </div>
+                </div>
+
+                <div class="tool-card searchable" data-keys="url to apk">
+                    <div class="card-header"><div class="icon-box"><i class="fas fa-link"></i></div><div class="card-title">URL to APK</div></div>
+                    <p class="card-desc">Convert Website to APK.</p>
+                    <div class="code-snippet">https://url-to-apk-convert.bjcoderx.workers.dev/create</div>
+                    <div class="actions">
+                        <button class="btn-action btn-copy" data-val="https://url-to-apk-convert.bjcoderx.workers.dev/create?name=apihub&link=https://bj-bot-hosting.vercel.app/"><i class="fas fa-copy"></i> Copy</button>
+                        <button class="btn-action btn-down" data-val="https://url-to-apk-convert.bjcoderx.workers.dev/create?name=apihub&link=https://bj-bot-hosting.vercel.app/" data-name="URL2APK"><i class="fas fa-file-alt"></i> Save</button>
+                    </div>
+                </div>
+
+                <div class="tool-card searchable" data-keys="country info">
+                    <div class="card-header"><div class="icon-box"><i class="fas fa-globe"></i></div><div class="card-title">Country Info</div></div>
+                    <p class="card-desc">Get country details.</p>
+                    <div class="code-snippet">https://countrys-information.apis-bj-devs.workers.dev/?name=</div>
+                    <div class="actions">
+                        <button class="btn-action btn-copy" data-val="https://countrys-information.apis-bj-devs.workers.dev/?name=India"><i class="fas fa-copy"></i> Copy</button>
+                        <button class="btn-action btn-down" data-val="https://countrys-information.apis-bj-devs.workers.dev/?name=India" data-name="Country_API"><i class="fas fa-file-alt"></i> Save</button>
+                    </div>
+                </div>
+
+                <div class="tool-card searchable" data-keys="translator language">
+                    <div class="card-header"><div class="icon-box"><i class="fas fa-language"></i></div><div class="card-title">Translator</div></div>
+                    <p class="card-desc">Multi-language translator.</p>
+                    <div class="code-snippet">https://translator.bjcoderx.workers.dev/?text=</div>
+                    <div class="actions">
+                        <button class="btn-action btn-copy" data-val="https://translator.bjcoderx.workers.dev/?text=Hellobrother&fr=en&to=ur"><i class="fas fa-copy"></i> Copy</button>
+                        <button class="btn-action btn-down" data-val="https://translator.bjcoderx.workers.dev/?text=Hellobrother&fr=en&to=ur" data-name="Translator_API"><i class="fas fa-file-alt"></i> Save</button>
+                    </div>
+                </div>
+
+                <div class="tool-card searchable" data-keys="ip info">
+                    <div class="card-header"><div class="icon-box"><i class="fas fa-network-wired"></i></div><div class="card-title">IP Info</div></div>
+                    <p class="card-desc">IP Address details.</p>
+                    <div class="code-snippet">https://ip-info.bjcoderx.workers.dev/?ip=</div>
+                    <div class="actions">
+                        <button class="btn-action btn-copy" data-val="https://ip-info.bjcoderx.workers.dev/?ip=149.154.167.91"><i class="fas fa-copy"></i> Copy</button>
+                        <button class="btn-action btn-down" data-val="https://ip-info.bjcoderx.workers.dev/?ip=149.154.167.91" data-name="IP_Info"><i class="fas fa-file-alt"></i> Save</button>
+                    </div>
+                </div>
+
+                <div class="tool-card searchable" data-keys="exchange rate currency">
+                    <div class="card-header"><div class="icon-box"><i class="fas fa-money-bill-wave"></i></div><div class="card-title">Exchange Rate</div></div>
+                    <p class="card-desc">Real-time currency rates.</p>
+                    <div class="code-snippet">https://real-time-global-exchange-rates.bjcoderx.workers.dev/</div>
+                    <div class="actions">
+                        <button class="btn-action btn-copy" data-val="https://real-time-global-exchange-rates.bjcoderx.workers.dev/?From=USD&Amount=10&To=PKR"><i class="fas fa-copy"></i> Copy</button>
+                        <button class="btn-action btn-down" data-val="https://real-time-global-exchange-rates.bjcoderx.workers.dev/?From=USD&Amount=10&To=PKR" data-name="Exchange_API"><i class="fas fa-file-alt"></i> Save</button>
+                    </div>
+                </div>
+
+                <div class="tool-card searchable" data-keys="nation info">
+                    <div class="card-header"><div class="icon-box"><i class="fas fa-flag"></i></div><div class="card-title">Nation Info</div></div>
+                    <p class="card-desc">Nation details API.</p>
+                    <div class="code-snippet">https://nation-info.apis-bj-devs.workers.dev/?name=</div>
+                    <div class="actions">
+                        <button class="btn-action btn-copy" data-val="https://nation-info.apis-bj-devs.workers.dev/?name=Pakistan"><i class="fas fa-copy"></i> Copy</button>
+                        <button class="btn-action btn-down" data-val="https://nation-info.apis-bj-devs.workers.dev/?name=Pakistan" data-name="Nation_API"><i class="fas fa-file-alt"></i> Save</button>
+                    </div>
+                </div>
+
+                <!-- Bombers -->
+                <div class="tool-card searchable" data-keys="sms bomber indian">
+                    <div class="card-header"><div class="icon-box"><i class="fas fa-bomb"></i></div><div class="card-title">IND SMS Bomber</div></div>
+                    <p class="card-desc">Indian number bomber.</p>
+                    <div class="code-snippet">https://legendxdata.site/Api/indbom.php?num=</div>
+                    <div class="actions">
+                        <button class="btn-action btn-copy" data-val="https://legendxdata.site/Api/indbom.php?num=2333333333&repeat=1"><i class="fas fa-copy"></i> Copy</button>
+                        <button class="btn-action btn-down" data-val="https://legendxdata.site/Api/indbom.php?num=2333333333&repeat=1" data-name="IND_Bomber"><i class="fas fa-file-alt"></i> Save</button>
+                    </div>
+                </div>
+
+                <div class="tool-card searchable" data-keys="sms bomber pakistani">
+                    <div class="card-header"><div class="icon-box"><i class="fas fa-sms"></i></div><div class="card-title">PAK SMS Bomber</div></div>
+                    <p class="card-desc">Pakistani number bomber.</p>
+                    <div class="code-snippet">https://shadowscriptz.xyz/shadowapisv4/smsbomberapi.php</div>
+                    <div class="actions">
+                        <button class="btn-action btn-copy" data-val="https://shadowscriptz.xyz/shadowapisv4/smsbomberapi.php?number=923001234567"><i class="fas fa-copy"></i> Copy</button>
+                        <button class="btn-action btn-down" data-val="https://shadowscriptz.xyz/shadowapisv4/smsbomberapi.php?number=923001234567" data-name="PAK_Bomber"><i class="fas fa-file-alt"></i> Save</button>
+                    </div>
+                </div>
+
+                <div class="tool-card searchable" data-keys="image enhance">
+                    <div class="card-header"><div class="icon-box"><i class="fas fa-image"></i></div><div class="card-title">Image Enhance</div></div>
+                    <p class="card-desc">Improve image quality.</p>
+                    <div class="code-snippet">https://image-enhance.apis-bj-devs.workers.dev/?imageurl=</div>
+                    <div class="actions">
+                        <button class="btn-action btn-copy" data-val="https://image-enhance.apis-bj-devs.workers.dev/?imageurl="><i class="fas fa-copy"></i> Copy</button>
+                        <button class="btn-action btn-down" data-val="https://image-enhance.apis-bj-devs.workers.dev/?imageurl=" data-name="Img_Enhance"><i class="fas fa-file-alt"></i> Save</button>
                     </div>
                 </div>
 
             </div>
         </div>
 
-        <!-- SOURCE CODE SECTION -->
+        <!-- ======================= SOURCE CODE SECTION ======================= -->
         <div id="source" class="section-view">
             <div class="grid">
                 
-                <div class="tool-card searchable" data-keys="game prediction html">
-                    <div class="card-header">
-                        <div class="icon-box"><i class="fas fa-gamepad"></i></div>
-                        <div class="card-title">92Glory Prediction</div>
-                    </div>
-                    <p class="card-desc">Full HTML5 game source code with prediction logic.</p>
-                    <a href="https://www.mediafire.com/file/dfu8vmpxu5du93w/92GLORY_PREDICTION_SOURCE_CODE.zip/file" target="_blank" class="btn-action btn-copy" style="text-decoration: none; justify-content: center;">
-                        <i class="fas fa-cloud-download-alt"></i> Download ZIP
-                    </a>
+                <!-- HTML CODES -->
+                <div class="tool-card searchable" data-keys="html 92glory prediction">
+                    <div class="card-header"><div class="icon-box"><i class="fas fa-chart-line"></i></div><div class="card-title">92Glory Prediction</div></div>
+                    <span class="cat-badge badge-html">HTML</span>
+                    <p class="card-desc">Prediction game source code.</p>
+                    <a href="https://www.mediafire.com/file/dfu8vmpxu5du93w/92GLORY_PREDICTION_SOURCE_CODE.zip/file" target="_blank" class="btn-action btn-copy"><i class="fas fa-download"></i> Download ZIP</a>
                 </div>
 
-                <div class="tool-card searchable" data-keys="telegram bot python">
-                    <div class="card-header">
-                        <div class="icon-box"><i class="fas fa-robot"></i></div>
-                        <div class="card-title">Multi-Tasking Bot</div>
-                    </div>
-                    <p class="card-desc">Python Telegram bot source with plugin support.</p>
-                    <a href="https://www.mediafire.com/file/oqv63d6ro2w9rtb/Multi-Tasking-Bot-main.zip/file" target="_blank" class="btn-action btn-copy" style="text-decoration: none; justify-content: center;">
-                        <i class="fas fa-cloud-download-alt"></i> Download ZIP
-                    </a>
+                <div class="tool-card searchable" data-keys="html apk download store">
+                    <div class="card-header"><div class="icon-box"><i class="fas fa-download"></i></div><div class="card-title">APK Store</div></div>
+                    <span class="cat-badge badge-html">HTML</span>
+                    <p class="card-desc">APK downloading website template.</p>
+                    <a href="https://www.mediafire.com/file/d3p5i2mgsluqvlk/APK_DOWNLOAD_SOURCE_CODE.zip/file" target="_blank" class="btn-action btn-copy"><i class="fas fa-download"></i> Download ZIP</a>
                 </div>
 
-                <div class="tool-card searchable" data-keys="api stress test">
-                    <div class="card-header">
-                        <div class="icon-box"><i class="fas fa-bug"></i></div>
-                        <div class="card-title">API Crasher Tool</div>
-                    </div>
-                    <p class="card-desc">Termux script for API stress testing.</p>
-                    <a href="https://www.mediafire.com/file/27vzc29bwebq4zy/API_CRASHER.zip/file" target="_blank" class="btn-action btn-copy" style="text-decoration: none; justify-content: center;">
-                        <i class="fas fa-cloud-download-alt"></i> Download ZIP
-                    </a>
+                <div class="tool-card searchable" data-keys="html big small prediction">
+                    <div class="card-header"><div class="icon-box"><i class="fas fa-dice"></i></div><div class="card-title">Big Small Pred</div></div>
+                    <span class="cat-badge badge-html">HTML</span>
+                    <p class="card-desc">Big Small game prediction tool.</p>
+                    <a href="https://www.mediafire.com/file/ngqvc212iiz2oun/big-small-prediction-tool_SOURCE_CODE.zip/file" target="_blank" class="btn-action btn-copy"><i class="fas fa-download"></i> Download ZIP</a>
+                </div>
+
+                <div class="tool-card searchable" data-keys="html code generator">
+                    <div class="card-header"><div class="icon-box"><i class="fas fa-key"></i></div><div class="card-title">Code Generator</div></div>
+                    <span class="cat-badge badge-html">HTML</span>
+                    <p class="card-desc">Random code generator tool.</p>
+                    <a href="https://www.mediafire.com/file/3f5wou99y7rkex9/CODE_GENERATER_SOURCE_CODE.zip/file" target="_blank" class="btn-action btn-copy"><i class="fas fa-download"></i> Download ZIP</a>
+                </div>
+
+                <div class="tool-card searchable" data-keys="html code editor">
+                    <div class="card-header"><div class="icon-box"><i class="fas fa-edit"></i></div><div class="card-title">HTML Editor</div></div>
+                    <span class="cat-badge badge-html">HTML</span>
+                    <p class="card-desc">Online HTML/CSS editor.</p>
+                    <a href="https://www.mediafire.com/file/okxbrc2j348ytr1/HTML_CODE_EDITOR_SOURCE_CODE.zip/file" target="_blank" class="btn-action btn-copy"><i class="fas fa-download"></i> Download ZIP</a>
+                </div>
+
+                <div class="tool-card searchable" data-keys="html encryptor">
+                    <div class="card-header"><div class="icon-box"><i class="fas fa-lock"></i></div><div class="card-title">HTML Encryptor</div></div>
+                    <span class="cat-badge badge-html">HTML</span>
+                    <p class="card-desc">Encrypt source code tool.</p>
+                    <a href="https://www.mediafire.com/file/qy6qhgyzt0urksn/HTML_ENCRYPTOR_TOOL_SOURCE_CODE.zip/file" target="_blank" class="btn-action btn-copy"><i class="fas fa-download"></i> Download ZIP</a>
+                </div>
+
+                <div class="tool-card searchable" data-keys="html lucky wheel">
+                    <div class="card-header"><div class="icon-box"><i class="fas fa-redo"></i></div><div class="card-title">Lucky Wheel</div></div>
+                    <span class="cat-badge badge-html">HTML</span>
+                    <p class="card-desc">Spin wheel game source.</p>
+                    <a href="https://www.mediafire.com/file/efltpcr0k9tvi00/LUCKY_WHEEL__SOURCE_CODE.zip/file" target="_blank" class="btn-action btn-copy"><i class="fas fa-download"></i> Download ZIP</a>
+                </div>
+
+                <div class="tool-card searchable" data-keys="html sim database">
+                    <div class="card-header"><div class="icon-box"><i class="fas fa-database"></i></div><div class="card-title">Sim Database</div></div>
+                    <span class="cat-badge badge-html">HTML</span>
+                    <p class="card-desc">Secure Sim DB website.</p>
+                    <a href="https://www.mediafire.com/file/jjnfpz8bp4um7df/SIM_DATABASE_SECURE_CODE.zip/file" target="_blank" class="btn-action btn-copy"><i class="fas fa-download"></i> Download ZIP</a>
+                </div>
+
+                <div class="tool-card searchable" data-keys="html sms bomber">
+                    <div class="card-header"><div class="icon-box"><i class="fas fa-bomb"></i></div><div class="card-title">Web SMS Bomber</div></div>
+                    <span class="cat-badge badge-html">HTML</span>
+                    <p class="card-desc">Frontend for bomber APIs.</p>
+                    <a href="https://www.mediafire.com/file/w0xzuutd49s70hh/SMS_BOMBER_SOURCE_CODE.zip/file" target="_blank" class="btn-action btn-copy"><i class="fas fa-download"></i> Download ZIP</a>
+                </div>
+
+                <div class="tool-card searchable" data-keys="html social downloader">
+                    <div class="card-header"><div class="icon-box"><i class="fas fa-share-alt"></i></div><div class="card-title">Social Downloader</div></div>
+                    <span class="cat-badge badge-html">HTML</span>
+                    <p class="card-desc">All-in-one social video downloader.</p>
+                    <a href="https://www.mediafire.com/file/qy0yd6wahaxiv37/SOCIAL_MEDIA_DOWNLOADER_SOURCE_CODE.zip/file" target="_blank" class="btn-action btn-copy"><i class="fas fa-download"></i> Download ZIP</a>
+                </div>
+
+                <div class="tool-card searchable" data-keys="html watermark tool">
+                    <div class="card-header"><div class="icon-box"><i class="fas fa-water"></i></div><div class="card-title">Watermark Tool</div></div>
+                    <span class="cat-badge badge-html">HTML</span>
+                    <p class="card-desc">Add watermarks to images.</p>
+                    <a href="https://www.mediafire.com/file/n4e1cbgx3g809xl/WATERMARK_TOOL_SOURCE_CODE.zip/file" target="_blank" class="btn-action btn-copy"><i class="fas fa-download"></i> Download ZIP</a>
+                </div>
+
+                <div class="tool-card searchable" data-keys="html website copy">
+                    <div class="card-header"><div class="icon-box"><i class="fas fa-copy"></i></div><div class="card-title">Site Copy Tool</div></div>
+                    <span class="cat-badge badge-html">HTML</span>
+                    <p class="card-desc">Clone website source code.</p>
+                    <a href="https://www.mediafire.com/file/6d4tr3987jfg05d/WEBSITE_COPY_TOOL.zip/file" target="_blank" class="btn-action btn-copy"><i class="fas fa-download"></i> Download ZIP</a>
+                </div>
+
+                <div class="tool-card searchable" data-keys="html whatsapp ban">
+                    <div class="card-header"><div class="icon-box"><i class="fab fa-whatsapp"></i></div><div class="card-title">WA Ban Tool</div></div>
+                    <span class="cat-badge badge-html">HTML</span>
+                    <p class="card-desc">WhatsApp ban utility code.</p>
+                    <a href="https://www.mediafire.com/file/a1fc18t5jg6e5ee/WHATSAPP_BAN_TOOL.zip/file" target="_blank" class="btn-action btn-copy"><i class="fas fa-download"></i> Download ZIP</a>
+                </div>
+
+                <div class="tool-card searchable" data-keys="html youtube watch time">
+                    <div class="card-header"><div class="icon-box"><i class="fab fa-youtube"></i></div><div class="card-title">YT Watch Time</div></div>
+                    <span class="cat-badge badge-html">HTML</span>
+                    <p class="card-desc">Unlimited watch time script.</p>
+                    <a href="https://www.mediafire.com/file/am7qk45dmv94vue/YOUTUBE_UNLIMITED_WATCH_TIME_.zip/file" target="_blank" class="btn-action btn-copy"><i class="fas fa-download"></i> Download ZIP</a>
+                </div>
+
+                <div class="tool-card searchable" data-keys="html zoo rulat">
+                    <div class="card-header"><div class="icon-box"><i class="fas fa-gamepad"></i></div><div class="card-title">Zoo Rulat</div></div>
+                    <span class="cat-badge badge-html">HTML</span>
+                    <p class="card-desc">Zoo Rulat game tool.</p>
+                    <a href="https://www.mediafire.com/file/34gmgb47yxxvbpz/ZOO_RULAT_TOOL.zip/file" target="_blank" class="btn-action btn-copy"><i class="fas fa-download"></i> Download ZIP</a>
+                </div>
+
+                <!-- BOT CODES -->
+                <div class="tool-card searchable" data-keys="bot all games prediction">
+                    <div class="card-header"><div class="icon-box"><i class="fas fa-dice"></i></div><div class="card-title">All Games Pred</div></div>
+                    <span class="cat-badge badge-bot">BOT</span>
+                    <p class="card-desc">Telegram bot for game prediction.</p>
+                    <a href="https://www.mediafire.com/file/11iztvs5g7o1sa0/ALL_GAMES_PREDATION.zip/file" target="_blank" class="btn-action btn-copy"><i class="fas fa-download"></i> Download ZIP</a>
+                </div>
+
+                <div class="tool-card searchable" data-keys="bot image to link">
+                    <div class="card-header"><div class="icon-box"><i class="fas fa-image"></i></div><div class="card-title">Image to Link</div></div>
+                    <span class="cat-badge badge-bot">BOT</span>
+                    <p class="card-desc">Convert image to URL bot.</p>
+                    <a href="https://www.mediafire.com/file/7wbn8cd7sd982oz/IMAGE_TO_LINK_BOT_SOURCE_CODE.zip/file" target="_blank" class="btn-action btn-copy"><i class="fas fa-download"></i> Download ZIP</a>
+                </div>
+
+                <div class="tool-card searchable" data-keys="bot multi tasking">
+                    <div class="card-header"><div class="icon-box"><i class="fas fa-tasks"></i></div><div class="card-title">Multi-Task Bot</div></div>
+                    <span class="cat-badge badge-bot">BOT</span>
+                    <p class="card-desc">Feature-rich telegram bot.</p>
+                    <a href="https://www.mediafire.com/file/oqv63d6ro2w9rtb/Multi-Tasking-Bot-main.zip/file" target="_blank" class="btn-action btn-copy"><i class="fas fa-download"></i> Download ZIP</a>
+                </div>
+
+                <div class="tool-card searchable" data-keys="bot sim database">
+                    <div class="card-header"><div class="icon-box"><i class="fas fa-database"></i></div><div class="card-title">Sim DB Bot</div></div>
+                    <span class="cat-badge badge-bot">BOT</span>
+                    <p class="card-desc">Telegram bot for Sim info.</p>
+                    <a href="https://www.mediafire.com/file/41hj226hd9lp2l6/SIM_DATABASE_.zip/file" target="_blank" class="btn-action btn-copy"><i class="fas fa-download"></i> Download ZIP</a>
+                </div>
+
+                <div class="tool-card searchable" data-keys="bot sms email bomber">
+                    <div class="card-header"><div class="icon-box"><i class="fas fa-envelope"></i></div><div class="card-title">SMS/Email Bomb</div></div>
+                    <span class="cat-badge badge-bot">BOT</span>
+                    <p class="card-desc">Bomber bot source code.</p>
+                    <a href="https://www.mediafire.com/file/g9stuuxk4xe60b1/SMS_EMAIL_BOMBER_BOT_.zip/file" target="_blank" class="btn-action btn-copy"><i class="fas fa-download"></i> Download ZIP</a>
+                </div>
+
+                <div class="tool-card searchable" data-keys="bot tanisha pkg">
+                    <div class="card-header"><div class="icon-box"><i class="fas fa-box"></i></div><div class="card-title">Tanisha Pkg</div></div>
+                    <span class="cat-badge badge-bot">BOT</span>
+                    <p class="card-desc">Package management bot.</p>
+                    <a href="https://www.mediafire.com/file/2g1rbg9jzj7h3gx/TANISHA_PKG_.zip/file" target="_blank" class="btn-action btn-copy"><i class="fas fa-download"></i> Download ZIP</a>
+                </div>
+
+                <div class="tool-card searchable" data-keys="bot html protector">
+                    <div class="card-header"><div class="icon-box"><i class="fas fa-shield-alt"></i></div><div class="card-title">HTML Protector</div></div>
+                    <span class="cat-badge badge-bot">BOT</span>
+                    <p class="card-desc">Team Legends protector bot.</p>
+                    <a href="https://www.mediafire.com/file/gl207j5f17qsfb1/TEAM_LEGENDS_HTML_PROTECTOR.zip/file" target="_blank" class="btn-action btn-copy"><i class="fas fa-download"></i> Download ZIP</a>
+                </div>
+
+                <div class="tool-card searchable" data-keys="bot prompt ai">
+                    <div class="card-header"><div class="icon-box"><i class="fas fa-comment"></i></div><div class="card-title">Prompt Bot</div></div>
+                    <span class="cat-badge badge-bot">BOT</span>
+                    <p class="card-desc">AI Prompt based bot.</p>
+                    <a href="https://www.mediafire.com/file/9be49dav2l1ceu1/Telegram_Prompt_Bot.zip/file" target="_blank" class="btn-action btn-copy"><i class="fas fa-download"></i> Download ZIP</a>
+                </div>
+
+                <!-- TERMUX CODES -->
+                <div class="tool-card searchable" data-keys="termux api crasher">
+                    <div class="card-header"><div class="icon-box"><i class="fas fa-bug"></i></div><div class="card-title">API Crasher</div></div>
+                    <span class="cat-badge badge-termux">TERMUX</span>
+                    <p class="card-desc">Stress testing script.</p>
+                    <a href="https://www.mediafire.com/file/27vzc29bwebq4zy/API_CRASHER.zip/file" target="_blank" class="btn-action btn-copy"><i class="fas fa-download"></i> Download ZIP</a>
+                </div>
+
+                <div class="tool-card searchable" data-keys="termux file viewer">
+                    <div class="card-header"><div class="icon-box"><i class="fas fa-file"></i></div><div class="card-title">File Viewer</div></div>
+                    <span class="cat-badge badge-termux">TERMUX</span>
+                    <p class="card-desc">Advanced file viewer tool.</p>
+                    <a href="https://www.mediafire.com/file/wthvrdrpxsr2sjh/FILE_VIEWER_.zip/file" target="_blank" class="btn-action btn-copy"><i class="fas fa-download"></i> Download ZIP</a>
+                </div>
+
+                <div class="tool-card searchable" data-keys="termux copy tool">
+                    <div class="card-header"><div class="icon-box"><i class="fas fa-copy"></i></div><div class="card-title">Copy Tool</div></div>
+                    <span class="cat-badge badge-termux">TERMUX</span>
+                    <p class="card-desc">HTML+CSS+JS copy script.</p>
+                    <a href="https://www.mediafire.com/file/kqjchfib84je0ao/HTML_%252B_CSS_%252B_JS_COPY_TOOL.zip/file" target="_blank" class="btn-action btn-copy"><i class="fas fa-download"></i> Download ZIP</a>
+                </div>
+
+                <div class="tool-card searchable" data-keys="termux pair spamming">
+                    <div class="card-header"><div class="icon-box"><i class="fas fa-share-alt"></i></div><div class="card-title">Pair Spam</div></div>
+                    <span class="cat-badge badge-termux">TERMUX</span>
+                    <p class="card-desc">Pair spamming tool.</p>
+                    <a href="https://www.mediafire.com/file/qcjyzoaiwrp6801/PAIR_SPAMMING_.zip/file" target="_blank" class="btn-action btn-copy"><i class="fas fa-download"></i> Download ZIP</a>
+                </div>
+
+                <div class="tool-card searchable" data-keys="termux safeum account">
+                    <div class="card-header"><div class="icon-box"><i class="fas fa-user-shield"></i></div><div class="card-title">Safeum Acc</div></div>
+                    <span class="cat-badge badge-termux">TERMUX</span>
+                    <p class="card-desc">Unlimited account tool.</p>
+                    <a href="https://www.mediafire.com/file/fwsxaq2wzgne6po/SAFEUM_UNLIMITED_ACCOUNT_.zip/file" target="_blank" class="btn-action btn-copy"><i class="fas fa-download"></i> Download ZIP</a>
+                </div>
+
+                <div class="tool-card searchable" data-keys="termux sms bomber">
+                    <div class="card-header"><div class="icon-box"><i class="fas fa-sms"></i></div><div class="card-title">Termux Bomber</div></div>
+                    <span class="cat-badge badge-termux">TERMUX</span>
+                    <p class="card-desc">SMS bomber for Termux.</p>
+                    <a href="https://www.mediafire.com/file/slb6uc9adez8xy2/SMS_BOMBER_.zip/file" target="_blank" class="btn-action btn-copy"><i class="fas fa-download"></i> Download ZIP</a>
+                </div>
+
+                <div class="tool-card searchable" data-keys="termux teenpatti prediction">
+                    <div class="card-header"><div class="icon-box"><i class="fas fa-cards"></i></div><div class="card-title">Teenpatti</div></div>
+                    <span class="cat-badge badge-termux">TERMUX</span>
+                    <p class="card-desc">Teenpatti prediction tool.</p>
+                    <a href="https://www.mediafire.com/file/kwah3m6r0ueshi5/TEENPATTI_PREDICTION_.zip/file" target="_blank" class="btn-action btn-copy"><i class="fas fa-download"></i> Download ZIP</a>
+                </div>
+
+                <div class="tool-card searchable" data-keys="termux api sniffer">
+                    <div class="card-header"><div class="icon-box"><i class="fas fa-search"></i></div><div class="card-title">API Sniffer</div></div>
+                    <span class="cat-badge badge-termux">TERMUX</span>
+                    <p class="card-desc">Website API sniffer.</p>
+                    <a href="https://www.mediafire.com/file/nmmzrgt1w919qlx/WEBSITE_API_SNIFFER_TOOL.zip/file" target="_blank" class="btn-action btn-copy"><i class="fas fa-download"></i> Download ZIP</a>
                 </div>
 
             </div>
         </div>
+
+
 
     </div>
 
@@ -306,26 +663,19 @@
     </div>
 
     <script>
-        // Tab Switching
         function switchTab(tabId) {
-            // Update Buttons
             document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
-
-            // Update Content
             document.querySelectorAll('.section-view').forEach(sec => sec.classList.remove('active'));
             document.getElementById(tabId).classList.add('active');
         }
 
-        // Search Functionality
         document.getElementById('searchInput').addEventListener('input', function(e) {
             const term = e.target.value.toLowerCase();
             const cards = document.querySelectorAll('.searchable');
-
             cards.forEach(card => {
                 const title = card.querySelector('.card-title').textContent.toLowerCase();
                 const keys = card.getAttribute('data-keys').toLowerCase();
-                
                 if(title.includes(term) || keys.includes(term)) {
                     card.style.display = 'flex';
                 } else {
@@ -334,17 +684,13 @@
             });
         });
 
-        // Copy & Download Logic
         document.addEventListener('click', function(e) {
-            // Copy
-            if(e.target.closest('.btn-copy') && !e.target.closest('a')) { // Exclude links
+            if(e.target.closest('.btn-copy') && !e.target.closest('a')) {
                 const btn = e.target.closest('.btn-copy');
                 const val = btn.getAttribute('data-val');
                 navigator.clipboard.writeText(val);
                 showToast("Endpoint Copied!");
             }
-
-            // Download TXT
             if(e.target.closest('.btn-down')) {
                 const btn = e.target.closest('.btn-down');
                 const val = btn.getAttribute('data-val');
@@ -363,7 +709,7 @@
         function downloadTxt(filename, text) {
             const element = document.createElement('a');
             element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
-            element.setAttribute('download', filename + "_FAZ.txt");
+            element.setAttribute('download', filename + "_NEXUS.txt");
             document.body.appendChild(element);
             element.click();
             document.body.removeChild(element);
